@@ -16,9 +16,10 @@ namespace Orleans.Providers.InfluxDB.TestHost.Bootstrap
         public async Task Init(string name, IProviderRuntime providerRuntime, IProviderConfiguration config)
         {
             var producer = providerRuntime.GrainFactory.GetGrain<IProducerGrain>(Guid.Empty);
-            await producer.Start();
-            await producer.Start();
-            await producer.Start();
+            for (int i = 0; i < 10; i++)
+            {
+                await producer.Start();
+            }
         }
     }
 }
