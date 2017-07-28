@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.5</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Orleans.Core" Version="2.0.0-preview2-20170724" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\InfluxDB.Collector\InfluxDB.Collector.csproj" />
+    <ProjectReference Include="..\src\InfluxDB.LineProtocol\InfluxDB.LineProtocol.csproj" />
+  </ItemGroup>
+
+</Project>

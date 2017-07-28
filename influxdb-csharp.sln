@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{72DC28B9-37B5-425C-8532-5CA91D253A70}"
 EndProject
@@ -29,6 +29,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "sample\Sample\Sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfluxDB.Collector", "src\InfluxDB.Collector\InfluxDB.Collector.csproj", "{F690F3E3-D9F0-441A-9E70-4F70998BDD1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "orleans", "orleans", "{A3789A0D-1AD6-40A7-85E0-6DA73416B9CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Providers.InfluxDB", "Orleans.Providers.InfluxDB\Orleans.Providers.InfluxDB.csproj", "{0DFEAECF-E16B-414E-87FF-A18A7544607C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Providers.InfluxDB.TestHost", "Orleans.Providers.InfluxDB.TestHost\Orleans.Providers.InfluxDB.TestHost.csproj", "{965B767F-6F70-41F0-B553-9EB77197249A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +59,18 @@ Global
 		{F690F3E3-D9F0-441A-9E70-4F70998BDD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F690F3E3-D9F0-441A-9E70-4F70998BDD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F690F3E3-D9F0-441A-9E70-4F70998BDD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFEAECF-E16B-414E-87FF-A18A7544607C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFEAECF-E16B-414E-87FF-A18A7544607C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFEAECF-E16B-414E-87FF-A18A7544607C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFEAECF-E16B-414E-87FF-A18A7544607C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965B767F-6F70-41F0-B553-9EB77197249A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965B767F-6F70-41F0-B553-9EB77197249A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965B767F-6F70-41F0-B553-9EB77197249A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965B767F-6F70-41F0-B553-9EB77197249A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +80,8 @@ Global
 		{34173CA2-1551-4E46-B8E7-E4629A48E415} = {75C71D21-E6FD-493F-A355-997EEF4DDF11}
 		{DC6028D6-ED1D-4857-B5EB-28BA05E3F531} = {CD65EE64-FDA8-4ED9-A7F2-81BDD9F64C64}
 		{F690F3E3-D9F0-441A-9E70-4F70998BDD1B} = {72DC28B9-37B5-425C-8532-5CA91D253A70}
+		{B5B5A742-C5E6-4364-94EC-0DC8A1FD77BF} = {CD65EE64-FDA8-4ED9-A7F2-81BDD9F64C64}
+		{0DFEAECF-E16B-414E-87FF-A18A7544607C} = {A3789A0D-1AD6-40A7-85E0-6DA73416B9CE}
+		{965B767F-6F70-41F0-B553-9EB77197249A} = {A3789A0D-1AD6-40A7-85E0-6DA73416B9CE}
 	EndGlobalSection
 EndGlobal
