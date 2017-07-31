@@ -11,7 +11,7 @@
   </Globals>
   <Defaults>
     <Telemetry>
-      <TelemetryConsumer Assembly="Orleans.Providers.InfluxDB" Type="Orleans.Providers.InfluxDB.Telemetry.InfluxDBTelemetryConsumer" />
+      <TelemetryConsumer Assembly="Orleans.Providers.InfluxDB" Type="Orleans.Providers.InfluxDB.Telemetry.InfluxDBTelemetryConsumer" Server="localhost:8086" Database="test" />
     </Telemetry>
     <Networking Address="localhost" Port="11111" />
     <ProxyingGateway Address="localhost" Port="30000" />

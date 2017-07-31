@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Xml;
 
 namespace Orleans.Providers.InfluxDB.Telemetry
 {
@@ -18,7 +19,7 @@ namespace Orleans.Providers.InfluxDB.Telemetry
     {
         public static MetricsCollector Collector { get { return Metrics.Collector; } }
 
-        public InfluxDBTelemetryConsumer()
+        public InfluxDBTelemetryConsumer(XmlAttribute serverXml, XmlAttribute databaseXml)
         {
             var process = Process.GetCurrentProcess();
 
@@ -27,7 +28,7 @@ namespace Orleans.Providers.InfluxDB.Telemetry
                 .Tag.With("os", Environment.GetEnvironmentVariable("OS"))
                 .Tag.With("process", Path.GetFileName(process.MainModule.FileName))
                 .Batch.AtInterval(TimeSpan.FromSeconds(2))
-                .WriteTo.InfluxDB("http://localhost:8086", "data")
+                .WriteTo.InfluxDB($"http://{serverXml.Value}", databaseXml.Value)
                 .CreateCollector();
         }
 
@@ -48,6 +49,7 @@ namespace Orleans.Providers.InfluxDB.Telemetry
 
         public void Flush()
         {
+            // not required - handled by pipelined connector thread.
         }
 
         public void IncrementMetric(string name)
@@ -62,37 +64,37 @@ namespace Orleans.Providers.InfluxDB.Telemetry
 
         public void Log(Severity severity, LoggerType loggerType, string caller, string message, IPEndPoint myIPEndPoint, Exception exception, int eventCode = 0)
         {
-            throw new NotImplementedException();
+            // TODO.
         }
 
         public void TrackDependency(string dependencyName, string commandName, DateTimeOffset startTime, TimeSpan duration, bool success)
         {
-            throw new NotImplementedException();
+            // TODO.
         }
 
         public void TrackEvent(string eventName, IDictionary<string, string> properties = null, IDictionary<string, double> metrics = null)
         {
-            throw new NotImplementedException();
+            // TODO.
         }
 
         public void TrackException(Exception exception, IDictionary<string, string> properties = null, IDictionary<string, double> metrics = null)
         {
-            throw new NotImplementedException();
+            // TODO.
         }
 
         public void TrackMetric(string name, double value, IDictionary<string, string> properties = null)
         {
-            throw new NotImplementedException();
+            Collector.Measure(name, Convert.ToInt64(value), (IReadOnlyDictionary<string,string>)properties);
         }
 
         public void TrackMetric(string name, TimeSpan value, IDictionary<string, string> properties = null)
         {
-            throw new NotImplementedException();
+            Collector.Measure(name, value.TotalMilliseconds, (IReadOnlyDictionary<string, string>)properties);
         }
 
         public void TrackRequest(string name, DateTimeOffset startTime, TimeSpan duration, string responseCode, bool success)
         {
-            throw new NotImplementedException();
+            // TODO.
         }
     }
 }

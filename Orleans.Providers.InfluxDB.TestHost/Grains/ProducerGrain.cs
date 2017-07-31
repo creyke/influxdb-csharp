@@ -7,8 +7,15 @@ namespace Orleans.Providers.InfluxDB.TestHost.Grains
 {
     public class ProducerGrain : Grain, IProducerGrain
     {
-        public async Task Start()
+        public Task Start()
         {
+            RegisterTimer(OnTimer, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(100));
+            return Task.CompletedTask;
+        }
+
+        private Task OnTimer(object state)
+        {
+            var random = new Random();
             var name = "Start";
             var commandName = $"{name}Command";
             var startTime = default(DateTimeOffset);
@@ -33,13 +40,19 @@ namespace Orleans.Providers.InfluxDB.TestHost.Grains
 
             logger.DecrementMetric($"Not{name}");
             logger.IncrementMetric(name);
-            //logger.Log(1, severityLevel, message, null, exception);
-            //logger.TrackDependency(name, commandName, startTime, duration, success);
+
+            logger.DecrementMetric($"NotAgain{name}", random.Next(0, 10));
+            logger.IncrementMetric($"Again{name}", random.Next(0, 10));
+
             //logger.TrackEvent(name, properties, metrics);
+            //logger.Log(1, severityLevel, message, null, exception);
+            //logger.TrackDependency(name, commandName, startTime, dura
             //logger.TrackException(exception, properties, metrics);
             //logger.TrackMetric(name, 1, properties);
             //logger.TrackRequest(name, startTime, duration, responseCode, success);
             //logger.TrackTrace(message, severityLevel, properties);
+
+            return Task.CompletedTask;
         }
     }
 }

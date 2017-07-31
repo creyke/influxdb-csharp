@@ -3,7 +3,9 @@ using System.Net;
 using Orleans.Runtime.Configuration;
 using Orleans.Runtime.Host;
 using Orleans.Runtime;
+using System.Linq;
 using System.Reflection;
+using System.Xml;
 
 namespace Orleans.Providers.InfluxDB.TestHost
 {
